@@ -1,0 +1,6 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="elegent_btn_dimns">8dp</dimen>
+    <dimen name="edittext_margin">16dp</dimen>
+    <dimen name="et_padding">8dp</dimen>
+</resources>

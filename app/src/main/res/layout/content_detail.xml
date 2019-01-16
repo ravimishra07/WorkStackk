@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".MainActivity"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_main">
+
+    <EditText
+        android:id="@+id/et_goal_detail"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:padding="@dimen/et_padding"
+        android:layout_marginLeft="@dimen/edittext_margin"
+        android:layout_marginRight="@dimen/edittext_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Coding,maths,history..."/>
+    <EditText
+        android:id="@+id/et_work_detail"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:padding="@dimen/et_padding"
+        android:layout_marginLeft="@dimen/edittext_margin"
+        android:layout_marginRight="@dimen/edittext_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Questions/Chapters/Units..."/>
+    <EditText
+        android:id="@+id/et_value_detail"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp"
+        android:padding="@dimen/et_padding"
+        android:layout_marginLeft="@dimen/edittext_margin"
+        android:layout_marginRight="@dimen/edittext_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:text="0"/>
+    <Button
+        android:id="@+id/btnUpdate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/btnUpdate"/>
+    <Button
+        android:id="@+id/btnDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Delete This Goal"/>
+</LinearLayout>
