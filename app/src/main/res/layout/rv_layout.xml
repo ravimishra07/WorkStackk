@@ -1,61 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="6dp"
         card_view:cardBackgroundColor="@color/grey"
-        card_view:cardCornerRadius="10dp"
-        card_view:cardElevation="5dp"
-        card_view:cardUseCompatPadding="true" >
+        card_view:cardCornerRadius="2dp"
+        card_view:cardElevation="3dp"
+        card_view:cardUseCompatPadding="true">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       android:padding="4dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tv_goal"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/autour_one"
-            android:paddingLeft="8dp"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-<LinearLayout
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:gravity="center"
-    android:layout_height="wrap_content">
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:id="@+id/ll2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_primary">
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:layout_toLeftOf="@+id/btnIconEdit"
+                    android:fontFamily="@font/andika"
+                    android:paddingLeft="@dimen/left_tv_padding"
+                    android:text="Task"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textColor="#fff"
+                    tools:fontFamily="@font/andika" />
 
 
-        <TextView
-            android:id="@+id/tv_value"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginBottom="4dp"
-            android:fontFamily="@font/autour_one"
-            android:paddingLeft="8dp"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
-    <TextView
-        android:layout_weight="1"
-        android:id="@+id/tv_work_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/autour_one"
-        android:paddingLeft="8dp"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-</LinearLayout>
-    </LinearLayout>
+                <ImageButton
+                    android:id="@+id/btnIconNotify"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/btnIconEdit"
+                    android:background="@android:color/transparent"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    app:srcCompat="@drawable/ic_access_alarm_white_24dp" />
+                <ImageButton
+                    android:id="@+id/btnIconEdit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/btnIconDelete"
+                    android:background="@android:color/transparent"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="6dp"
+                    app:srcCompat="@drawable/ic_edit_white_24dp" />
+
+                <ImageButton
+                    android:id="@+id/btnIconDelete"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="4dp"
+                    android:background="@android:color/transparent"
+                    android:paddingTop="6dp"
+                    android:paddingRight="2dp"
+                    app:srcCompat="@drawable/ic_close_white_24dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_goal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll2"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:fontFamily="@font/andika"
+                android:paddingLeft="8dp"
+                android:gravity="center"
+                android:textAppearance="?android:attr/textAppearanceLarge" />
+
+            <LinearLayout
+                android:id="@+id/ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_goal"
+
+                android:orientation="horizontal">
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabDecrement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:layout_margin="@dimen/fab_margin"
+
+                    android:clickable="true"
+                    app:borderWidth="0dp"
+                    app:elevation="6dp"
+                    app:fabSize="normal"
+                    app:pressedTranslationZ="12dp"
+                    app:srcCompat="@drawable/down" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_value"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/andika"
+                        android:gravity="right"
+
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        tools:fontFamily="sans-serif-condensed" />
+
+                    <TextView
+                        android:id="@+id/tv_work_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:layout_weight="1"
+
+                        android:fontFamily="@font/andika"
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+                </LinearLayout>
+
+                <android.support.design.widget.FloatingActionButton
+                    android:id="@+id/fabIncrement"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+
+                    android:layout_margin="@dimen/fab_margin"
+
+                    android:clickable="true"
+                    app:borderWidth="0dp"
+                    app:elevation="6dp"
+                    app:fabSize="normal"
+                    app:pressedTranslationZ="12dp"
+                    app:srcCompat="@drawable/up" />
+
+            </LinearLayout>
+
+            <SeekBar
+                android:id="@+id/seek_bar"
+                android:layout_below="@+id/ll1"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="32dp"
+                android:clickable="false"
+                android:min="0"
+                />
+        </RelativeLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>

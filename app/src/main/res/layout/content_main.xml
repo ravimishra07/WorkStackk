@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,25 +9,40 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:id="@+id/tv"
-
+    <LinearLayout
+        android:id="@+id/relLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="4dp"
-        android:fontFamily="@font/autour_one"
-        android:gravity="center"
-        android:padding="4dp"
-        android:visibility="gone"
-        android:text="Goal list is empty..\n Add a goal!!"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#000" />
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+android:visibility="gone"
+        >
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="180dp"
+            android:src="@drawable/target"
+            android:layout_height="180dp" />
+         <TextView
+            android:id="@+id/tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_margin="4dp"
+            android:fontFamily="@font/andika"
+            android:gravity="center"
+            android:padding="4dp"
+            android:text="Goal list is empty..\n Add a goal!!"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#000" />
+    </LinearLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rv"
-        app:layoutManager="android.support.v7.widget.LinearLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/autour_one"/>
-</LinearLayout>
+        android:layout_margin="2dp"
+        android:clipToPadding="false"
+        android:fontFamily="@font/andika"
+        app:layoutManager="android.support.v7.widget.LinearLayoutManager" />
+
+</android.support.constraint.ConstraintLayout>

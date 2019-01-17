@@ -6,8 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/autour_one</item>
-        <item name="fontFamily">@font/autour_one</item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
+        <item name="android:fontFamily" tools:targetApi="jelly_bean">@font/andika</item>
+        <item name="fontFamily">@font/andika</item> <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
 
     </style>
 

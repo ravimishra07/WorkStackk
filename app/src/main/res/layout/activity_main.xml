@@ -8,15 +8,17 @@
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80dp"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:paddingTop="30dp"
+            android:background="@drawable/gradient_primary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" ></android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
 
