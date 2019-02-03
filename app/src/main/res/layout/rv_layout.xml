@@ -55,6 +55,7 @@
                     android:paddingLeft="12dp"
                     android:paddingTop="6dp"
                     app:srcCompat="@drawable/ic_access_alarm_white_24dp" />
+
                 <ImageButton
                     android:id="@+id/btnIconEdit"
                     android:layout_width="wrap_content"
@@ -87,8 +88,8 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
                 android:fontFamily="@font/andika"
-                android:paddingLeft="8dp"
                 android:gravity="center"
+                android:paddingLeft="8dp"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
 
             <LinearLayout
@@ -163,17 +164,33 @@
 
             </LinearLayout>
 
-            <SeekBar
-                android:id="@+id/seek_bar"
-                android:layout_below="@+id/ll1"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
+            <LinearLayout
+                android:orientation="horizontal"
                 android:layout_alignParentBottom="true"
+
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:clickable="false"
-                android:min="0"
-                />
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll1">
+
+                <SeekBar
+
+                    android:id="@+id/seek_bar"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:clickable="false"
+                    android:min="0" />
+                <TextView
+                    android:id="@+id/maxval"
+                    android:layout_width="50dp"
+                    android:text="50"
+                    android:gravity="center"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 </RelativeLayout>

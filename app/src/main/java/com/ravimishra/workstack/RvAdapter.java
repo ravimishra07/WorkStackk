@@ -44,29 +44,32 @@ TextView tv1;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull final MyHolder myHolder, int i) {
-        final int min = 0;
-         int max = dataArrayList.get(i).getValue();
-        final int total = max - min;
-        int count=0;
-        int vl = dataArrayList.get(i).getValue();
-        myHolder.goalTxt.setText(dataArrayList.get(i).getGoal());
+
+       myHolder.goalTxt.setText(dataArrayList.get(i).getGoal());
         myHolder.goalTypeTxt.setText(dataArrayList.get(i).getGoalType());
-        myHolder.valtxt.setText(String.valueOf(dataArrayList.get(i).getValue()));
-        myHolder.seekBar.setMax(max);
+       myHolder.valtxt.setText(""+0);
+        myHolder.maxval.setText(String.valueOf(dataArrayList.get(i).getValue()));
+        //myHolder.seekBar.setMax(max);
+       // myHolder.seekBar.setProgress(Integer.parseInt(String.valueOf(myHolder.valtxt.getText())));
         myHolder.fabInc.setOnClickListener(this);
         myHolder.fabDec.setOnClickListener(this);
         myHolder.fabInc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Toast.makeText(context, "Increment clicked", Toast.LENGTH_SHORT).show();
+                int count = Integer.parseInt(String.valueOf(myHolder.valtxt.getText()));
+                if (count < Integer.parseInt(String.valueOf(myHolder.maxval.getText()))) {
+                    count++;
+                    myHolder.valtxt.setText(String.valueOf(count));
+                }
             }
         });
         myHolder.fabDec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, "Decrement clicked", Toast.LENGTH_SHORT).show();
-            }
+                int count =Integer.parseInt(String.valueOf(myHolder.valtxt.getText()));
+               if(count>0)
+                count--;
+                myHolder.valtxt.setText(String.valueOf(count));    }
         });
         try {
 

@@ -17,7 +17,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class MyHolder extends RecyclerView.ViewHolder {
-    TextView goalTxt, goalTypeTxt, valtxt;
+    TextView goalTxt, goalTypeTxt, valtxt,maxval;
     SeekBar seekBar;
     FloatingActionButton fabInc,fabDec;
     private final LinearLayout layout;
@@ -36,6 +36,7 @@ public class MyHolder extends RecyclerView.ViewHolder {
         goalTxt = itemView.findViewById(R.id.tv_goal);
         seekBar= itemView.findViewById(R.id.seek_bar);
         valtxt = itemView.findViewById(R.id.tv_value);
+        maxval = itemView.findViewById(R.id.maxval);
         fabDec = itemView.findViewById(R.id.fabDecrement);
         fabInc = itemView.findViewById(R.id.fabIncrement);
         goalTypeTxt = itemView.findViewById(R.id.tv_work_type);
