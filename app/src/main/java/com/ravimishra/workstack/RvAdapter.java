@@ -3,6 +3,7 @@ package com.ravimishra.workstack;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
@@ -16,16 +17,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.zip.Inflater;
 
 
-public class RvAdapter extends RecyclerView.Adapter<MyHolder> implements View.OnLongClickListener,View.OnClickListener{
+public class RvAdapter extends RecyclerView.Adapter<MyHolder> implements View.OnLongClickListener, View.OnClickListener {
     Context context;
     ArrayList<Data> dataArrayList;
-TextView tv1;
+    TextView tv1;
+
     public RvAdapter(Context context, ArrayList<Data> dataArrayList) {
         this.context = context;
         this.dataArrayList = dataArrayList;
@@ -44,13 +45,12 @@ TextView tv1;
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull final MyHolder myHolder, int i) {
-
-       myHolder.goalTxt.setText(dataArrayList.get(i).getGoal());
+        myHolder.goalTxt.setText(dataArrayList.get(i).getGoal());
         myHolder.goalTypeTxt.setText(dataArrayList.get(i).getGoalType());
-       myHolder.valtxt.setText(""+0);
+        myHolder.valtxt.setText("" + 0);
         myHolder.maxval.setText(String.valueOf(dataArrayList.get(i).getValue()));
         //myHolder.seekBar.setMax(max);
-       // myHolder.seekBar.setProgress(Integer.parseInt(String.valueOf(myHolder.valtxt.getText())));
+        // myHolder.seekBar.setProgress(Integer.parseInt(String.valueOf(myHolder.valtxt.getText())));
         myHolder.fabInc.setOnClickListener(this);
         myHolder.fabDec.setOnClickListener(this);
         myHolder.fabInc.setOnClickListener(new View.OnClickListener() {
@@ -59,17 +59,21 @@ TextView tv1;
                 int count = Integer.parseInt(String.valueOf(myHolder.valtxt.getText()));
                 if (count < Integer.parseInt(String.valueOf(myHolder.maxval.getText()))) {
                     count++;
+                   // dataArrayList.set(dataArrayList.);
                     myHolder.valtxt.setText(String.valueOf(count));
+                    notifyDataSetChanged();
                 }
             }
         });
         myHolder.fabDec.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int count =Integer.parseInt(String.valueOf(myHolder.valtxt.getText()));
-               if(count>0)
-                count--;
-                myHolder.valtxt.setText(String.valueOf(count));    }
+                int count = Integer.parseInt(String.valueOf(myHolder.valtxt.getText()));
+                if (count > 0)
+                    count--;
+                myHolder.valtxt.setText(String.valueOf(count));
+                notifyDataSetChanged();
+            }
         });
         try {
 

@@ -2,6 +2,7 @@ package com.ravimishra.workstack;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
     EditText etGoal, etwork, etval;
     int val;
     LinearLayout relativeLayout;
-
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
     String titDialogbox = "Add a new goal..";
     RecyclerView rv;
     RvAdapter adapter;
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         relativeLayout=findViewById(R.id.relLayout);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        sharedPreferences=getSharedPreferences("stan",MODE_PRIVATE);
+
         fab.setOnClickListener(new View.OnClickListener() {
 
 
