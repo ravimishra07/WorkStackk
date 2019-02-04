@@ -44,17 +44,6 @@
                     tools:fontFamily="@font/andika" />
 
 
-                <ImageButton
-                    android:id="@+id/btnIconNotify"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:layout_marginRight="12dp"
-                    android:layout_toLeftOf="@+id/btnIconEdit"
-                    android:background="@android:color/transparent"
-                    android:paddingLeft="12dp"
-                    android:paddingTop="6dp"
-                    app:srcCompat="@drawable/ic_access_alarm_white_24dp" />
 
                 <ImageButton
                     android:id="@+id/btnIconEdit"
@@ -106,7 +95,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom|end"
                     android:layout_margin="@dimen/fab_margin"
-
+android:focusable="true"
                     android:clickable="true"
                     app:borderWidth="0dp"
                     app:elevation="6dp"
@@ -154,7 +143,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_margin="@dimen/fab_margin"
-
+                     android:focusable="true"
                     android:clickable="true"
                     app:borderWidth="0dp"
                     app:elevation="6dp"

@@ -1,18 +1,15 @@
-package com.ravimishra.workstack;
+package com.ravimishra.workstack.Activity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -26,11 +23,16 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.LinearLayout;
-import android.widget.NumberPicker;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
+import com.ravimishra.workstack.Constants;
+import com.ravimishra.workstack.Model.Data;
+import com.ravimishra.workstack.Adapter.DbAdapter;
+import com.ravimishra.workstack.R;
+import com.ravimishra.workstack.Adapter.RvAdapter;
+import com.ravimishra.workstack.SharedPref;
 
 import java.util.ArrayList;
 
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     EditText etGoal, etwork, etval;
     int val;
     LinearLayout relativeLayout;
-    SharedPreferences sharedPreferences;
+    SharedPref sharedPref;
     SharedPreferences.Editor editor;
     String titDialogbox = "Add a new goal..";
     RecyclerView rv;
@@ -59,8 +61,7 @@ public class MainActivity extends AppCompatActivity {
         relativeLayout=findViewById(R.id.relLayout);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        sharedPreferences=getSharedPreferences("stan",MODE_PRIVATE);
-
+        sharedPref=new SharedPref(this);
         fab.setOnClickListener(new View.OnClickListener() {
 
 
@@ -184,14 +185,18 @@ relativeLayout.setVisibility(View.INVISIBLE);
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.delete_all) {
+            DbAdapter dbAdapter = new DbAdapter(this);
+            dbAdapter.openDB();
+dbAdapter.DeleteAll();
+adapter.notifyDataSetChanged();
+dbAdapter.close();
+sharedPref.deleteAll();
+startActivity(new Intent(this,MainActivity.class));
+
         }
 
         return super.onOptionsItemSelected(item);
@@ -203,24 +208,6 @@ relativeLayout.setVisibility(View.INVISIBLE);
         retrive();
     }
 
-    private int recyclerCount() {
-        int count = 0;
-        if (adapter != null) {
-            count = adapter.getItemCount();
-        }
-        return count;
-    }
-//    private void updateUI(int l){
-//        if (data.size()==0) {
-//            tv_init.setVisibility(View.VISIBLE);
-//            Toast.makeText(this, "jkjn" + data.size(), Toast.LENGTH_SHORT).show();
-//
-//        }
-//        else{
-//            Toast.makeText(this, "size" + data.size(), Toast.LENGTH_SHORT).show();
-//
-//            tv_init.setVisibility(View.INVISIBLE);
-//        }
-//
-//    }
+
+
 }

@@ -1,4 +1,4 @@
-package com.ravimishra.workstack;
+package com.ravimishra.workstack.Adapter;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -6,7 +6,10 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
-import android.widget.Toast;
+
+import com.ravimishra.workstack.Constants;
+import com.ravimishra.workstack.DBHelper;
+import com.ravimishra.workstack.Model.Data;
 
 import java.util.ArrayList;
 
@@ -89,5 +92,18 @@ return del;
         }
 
         return 0;
+    }
+    public void DeleteAll()
+    {
+        try
+        {
+
+            db.execSQL("DELETE FROM "+ Constants.TB_NAME);
+        }catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
+
     }
 }

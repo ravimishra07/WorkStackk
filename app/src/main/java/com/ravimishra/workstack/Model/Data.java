@@ -1,4 +1,4 @@
-package com.ravimishra.workstack;
+package com.ravimishra.workstack.Model;
 
 public class Data {
     int id;
